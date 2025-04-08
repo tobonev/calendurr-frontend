@@ -235,23 +235,15 @@ export default function Home() {
               {/* Semester Schedule */}
               <div className="lg:col-span-3">
                 <div className="bg-white shadow rounded-lg p-6">
-                <div className="flex justify-between items-center mb-4">
-                  <h2 className="text-lg font-medium text-gray-900">Semester Schedule</h2>
-                  <div className="flex gap-2">
+                  <div className="flex justify-between items-center mb-4">
+                    <h2 className="text-lg font-medium text-gray-900">Semester Schedule</h2>
                     <button
                       onClick={saveSchedule}
                       className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                       Save Schedule
                     </button>
-                    <button
-                      onClick={() => router.push('/model')}
-                      className="bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
-                    >
-                      Model Semesters
-                    </button>
                   </div>
-                </div>
                   <div className="space-y-4">
                     {semesters.map((semester) => (
                       <div key={semester.id} className="border rounded-lg p-4">
@@ -294,4 +286,4 @@ export default function Home() {
       </main>
     </div>
   );
-}
+} 
