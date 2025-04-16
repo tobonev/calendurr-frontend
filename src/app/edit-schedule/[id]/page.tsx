@@ -102,6 +102,7 @@ export default function EditSchedule() {
       }
 
       alert('Schedule saved successfully!');
+      router.push('/home');
     } catch (error) {
       console.error('Error saving schedule:', error);
       alert('Failed to save schedule. Please try again.');

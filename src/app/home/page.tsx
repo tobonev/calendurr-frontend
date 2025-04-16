@@ -35,13 +35,14 @@ export default function Home() {
         setUser(data.user);
 
         // Load saved schedules
-        const schedulesResponse = await fetch('http://localhost:5000/api/v1/schedules', {
+        const schedulesResponse = await fetch('http://localhost:5000/api/v1/plans', {
           credentials: 'include',
         });
         
         if (schedulesResponse.ok) {
           const schedulesData = await schedulesResponse.json();
-          setSchedules(schedulesData);
+          console.log(schedulesData.plans);
+          setSchedules(schedulesData.plans);
         }
       } catch (error) {
         router.push('/login');
@@ -54,7 +55,7 @@ export default function Home() {
   const handleDelete = async (scheduleId: string) => {
     if (window.confirm('Are you sure you want to delete this schedule?')) {
       try {
-        const response = await fetch(`http://localhost:5000/api/v1/schedules/${scheduleId}`, {
+        const response = await fetch(`http://localhost:5000/api/v1/plans/${scheduleId}`, {
           method: 'DELETE',
           credentials: 'include',
         });
