@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
+import CourseCard from '@/app/components/CourseCard';
 
 interface User {
   email: string;
@@ -13,6 +14,8 @@ interface Course {
   code: string;
   name: string;
   credits: number;
+  types?: string[];
+  repeatable?: boolean;
 }
 
 interface Semester {
@@ -25,10 +28,10 @@ export default function Home() {
   const [user, setUser] = useState<User | null>(null);
   //default courses to test drag/drop
   const [courses, setCourses] = useState<Course[]>([
-    { id: '1', code: 'CIS4930', name: 'Internet Programming', credits: 3 },
-    { id: '2', code: 'COP4530', name: 'Data Structures', credits: 3 },
-    { id: '3', code: 'COP4600', name: 'Operating Systems', credits: 3 },
-    { id: '4', code: 'CEN4010', name: 'Software Engineering', credits: 3 },
+    { id: '1', code: 'CIS4930', name: 'Internet Programming', credits: 3, types: ['elective'], repeatable: true },
+    { id: '2', code: 'COP4530', name: 'Data Structures', credits: 3, types: ['core', 'critical_tracking'], repeatable: false },
+    { id: '3', code: 'COP4600', name: 'Operating Systems', credits: 3, types: ['core', 'critical_tracking'], repeatable: false},  
+    { id: '4', code: 'CEN4010', name: 'Software Engineering', credits: 3, types: ['core'], repeatable: false},
   ]);
   const [semesters, setSemesters] = useState<Semester[]>([
     { id: 'fall1', name: 'Fall 2024', courses: [] },
@@ -123,8 +126,10 @@ export default function Home() {
       
       if (targetSemester) {
         // Remove from available courses
-        const newCourses = courses.filter((_, index) => index !== source.index);
-        setCourses(newCourses);
+        if (!course.repeatable) {
+          const newCourses = courses.filter((_, index) => index !== source.index);
+          setCourses(newCourses);
+        }
         
         // Add to semester
         targetSemester.courses.splice(destination.index, 0, course);
@@ -218,9 +223,16 @@ export default function Home() {
                                 {...provided.dragHandleProps}
                                 className="bg-indigo-50 p-3 rounded-lg cursor-move hover:bg-indigo-100"
                               >
-                                <div className="font-medium text-indigo-700">{course.code}</div>
-                                <div className="text-sm text-gray-600">{course.name}</div>
-                                <div className="text-xs text-gray-500">{course.credits} credits</div>
+                                <CourseCard
+                                  id={course.id}
+                                  code={course.code}
+                                  name={course.name}
+                                  credits={course.credits}
+                                  types={course.types}
+                                  onDragStart={(e) => {
+
+                                  }}
+                                />
                               </div>
                             )}
                           </Draggable>
@@ -264,9 +276,13 @@ export default function Home() {
                                       {...provided.dragHandleProps}
                                       className="bg-white p-2 rounded shadow-sm mb-2 cursor-move hover:bg-gray-50"
                                     >
-                                      <div className="font-medium text-indigo-700">{course.code}</div>
-                                      <div className="text-sm text-gray-600">{course.name}</div>
-                                      <div className="text-xs text-gray-500">{course.credits} credits</div>
+                                      <CourseCard
+                                        id={course.id}
+                                        code={course.code}
+                                        name={course.name}
+                                        credits={course.credits}
+                                        types={course.types}
+                                      />
                                     </div>
                                   )}
                                 </Draggable>
