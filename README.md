@@ -18,3 +18,4 @@ Having users be able to create and save academic schedules to their account's al
 
 <img width="470" alt="image" src="https://github.com/user-attachments/assets/13b11aef-793a-4c68-a0ff-ca430fd38347" />
 
+![supabase-erd](https://github.com/user-attachments/assets/e9d1afcf-d755-47ba-adf1-a8810efc5e28)
