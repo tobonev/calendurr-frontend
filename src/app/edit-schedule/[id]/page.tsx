@@ -51,7 +51,7 @@ export default function EditSchedule() {
 
   useEffect(() => {
 
-    setSemesters([{ id: uuidv4(), name: 'Credits Acquired', isCreditsAcquired: true, courses: [] }]);
+    setSemesters([{ id: uuidv4(), name: 'Transfer Credits', isCreditsAcquired: true, courses: [] }]);
 
     const checkAuth = async () => {
       try {

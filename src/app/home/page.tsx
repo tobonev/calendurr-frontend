@@ -135,20 +135,6 @@ export default function Home() {
                     </button>
                   </div>
                 </div>
-                <div className="mt-4 space-y-2">
-                  <p className="text-sm text-gray-600">
-                    <span className="font-medium">Major:</span> {schedule.major}
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    <span className="font-medium">Current Semester:</span> {schedule.currentSemester}
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    <span className="font-medium">Graduating Semester:</span> {schedule.graduatingSemester}
-                  </p>
-                  <p className="text-sm text-gray-500">
-                    Last modified: {new Date(schedule.lastModified).toLocaleDateString()}
-                  </p>
-                </div>
               </div>
             ))}
           </div>
