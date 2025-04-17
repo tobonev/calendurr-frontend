@@ -255,6 +255,12 @@ export default function Home() {
                     >
                       Save Schedule
                     </button>
+                    <button
+                      onClick={() => router.push('/model')}
+                      className="bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+                    >
+                      Model Semesters
+                    </button>
                   </div>
                   <div className="space-y-4">
                     {semesters.map((semester) => (
