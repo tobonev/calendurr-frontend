@@ -26,7 +26,7 @@ export default function CreateSchedule() {
       
       console.log('Submitting form data:', requestBody);
 
-      const response = await fetch('http://localhost:5000/api/v1/plans', {
+      const response = await fetch('http://calendurr-backend.onrender.com/api/v1/plans', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
