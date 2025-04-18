@@ -56,7 +56,7 @@ export default function EditSchedule() {
     const checkAuth = async () => {
       try {
         // Check if user is authenticated
-        const authResponse = await fetch('http://localhost:5000/api/v1/auth/me', {
+        const authResponse = await fetch('http://calendurr-backend.onrender.com/api/v1/auth/me', {
           credentials: 'include',
         });
 
@@ -69,7 +69,7 @@ export default function EditSchedule() {
         setUser(data.user);
 
         // Load schedule data
-        const scheduleResponse = await fetch(`http://localhost:5000/api/v1/plans/${params.id}`, {
+        const scheduleResponse = await fetch(`http://calendurr-backend.onrender.com/api/v1/plans/${params.id}`, {
           credentials: 'include',
         });
         
@@ -100,7 +100,7 @@ export default function EditSchedule() {
 
   const fetchCourses = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/v1/courses', {
+      const response = await fetch('http://calendurr-backend.onrender.com/api/v1/courses', {
         credentials: 'include',
       });
 
@@ -144,7 +144,7 @@ export default function EditSchedule() {
 
   const saveSchedule = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/v1/plans/${params.id}`, {
+      const response = await fetch(`http://calendurr-backend.onrender.com/api/v1/plans/${params.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
