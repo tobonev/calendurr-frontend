@@ -22,7 +22,7 @@ export default function Home() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/v1/auth/me', {
+        const response = await fetch('http://calendurr-backend.onrender.com/api/v1/auth/me', {
           credentials: 'include',
         });
         
@@ -35,7 +35,7 @@ export default function Home() {
         setUser(data.user);
 
         // Load saved schedules
-        const schedulesResponse = await fetch('http://localhost:5000/api/v1/plans', {
+        const schedulesResponse = await fetch('http://calendurr-backend.onrender.com/api/v1/plans', {
           credentials: 'include',
         });
         
@@ -55,7 +55,7 @@ export default function Home() {
   const handleDelete = async (scheduleId: string) => {
     if (window.confirm('Are you sure you want to delete this schedule?')) {
       try {
-        const response = await fetch(`http://localhost:5000/api/v1/plans/${scheduleId}`, {
+        const response = await fetch(`http://calendurr-backend.onrender.com/api/v1/plans/${scheduleId}`, {
           method: 'DELETE',
           credentials: 'include',
         });
