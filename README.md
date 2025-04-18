@@ -14,6 +14,8 @@ Now back on the home page, users can choose to edit or delete the schedule by cl
 
 Having users be able to create and save academic schedules to their account's allow for easy access and modificaton of their academic schedules along as they have a device with access to the internet. 
 
+Website URL : https://calendurr-frontend.vercel.app/
+
 ## ERD Diagram 
 
 <img width="470" alt="image" src="https://github.com/user-attachments/assets/13b11aef-793a-4c68-a0ff-ca430fd38347" />
