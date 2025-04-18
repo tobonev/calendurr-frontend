@@ -18,7 +18,7 @@ export default function LoginPage() {
     console.log('Attempting login with:', { email });
 
     try {
-      const response = await fetch('http://calendurr-backend.onrender.com/api/v1/auth/login', {
+      const response = await fetch('https://calendurr-backend.onrender.com/api/v1/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
