@@ -20,6 +20,7 @@ const typeColorMap: Record<string, string> = {
 };
 
 const CourseCard: React.FC<CourseCardProps> = ({
+  id,
   name,
   code,
   credits,
