@@ -20,7 +20,7 @@ export default function RegisterPage() {
     }
 
     try {
-      const response = await fetch('https://calendurr-backend.onrender.com/api/v1/auth/login', {
+      const response = await fetch('https://calendurr-backend.onrender.com/api/v1/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
