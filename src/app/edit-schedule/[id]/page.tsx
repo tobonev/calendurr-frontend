@@ -320,7 +320,7 @@ export default function EditSchedule() {
                   <div className="space-y-4">
                     {semesters.map((semester) => (
                       <div key={semester.id} className="border rounded-lg p-4 relative">
-                        <h3 className="font-medium text-gray-900 mb-2">{semester.name || semester.term}
+                        <h3 className="font-medium text-gray-900 mb-2">{semester.name}
                           {!semester.isCreditsAcquired && (
                             <button onClick={() => removeSemester(semester.id)} className="absolute right-2 top-2 bg-red-100 text-red-600 px-2 rounded hover:bg-red-200">-</button>
                           )}
